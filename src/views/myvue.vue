@@ -1,15 +1,15 @@
 <template>
   <p>ssss</p>
-    <ul>
-      <li v-for="book,index in books" :key="index" style="display: block">
-        {{index + 1}} - {{book.name}} - {{ book.author }}
-      </li>
-    </ul>
-    <form >
-      input name:<input type="text" placeholder="book name" v-model="name"><br>
-      input author:<input type="text" placeholder="book author" v-model="author"><br>
-      <button @click="xx()">xx</button><br>
-      <button @click="loadBooks()">yy</button><br>
+  <ul>
+    <li v-for="book,index in books" :key="index" style="display: block">
+      {{index + 1}} - {{book.name}} - {{ book.author }}
+    </li>
+  </ul>
+  <form >
+    input name:<input type="text" placeholder="book name" v-model="name"><br>
+    input author:<input type="text" placeholder="book author" v-model="author"><br>
+    <button @click="xx()">xx</button><br>
+    <button @click="loadBooks()">yy</button><br>
   </form>
 </template>
 

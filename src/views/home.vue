@@ -31,8 +31,8 @@ export default{
 .taiji{
     width: 400px;
     height: 400px;
-    left:40%;
-    top:10%;
+    left:35%;
+    top:15%;
     background-color: #000;
     border: 0px solid #fff;
     border-radius: 50%;

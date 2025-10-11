@@ -1,0 +1,7 @@
+[
+    { "id": "Node 1", "label": "Node 1" , "start": "2023-01-01","shape":"square"},
+    { "id": "Node 2", "label": "Node 2" , "start": "2023-01-01","shape":"square"},
+    { "id": 3, "label": "Node 3", "start": "2023-01-01" },
+    { "id": 4, "label": "Node 4" , "start": "2023-01-01"},
+    { "id": 5, "label": "Node 5" , "start": "2023-01-01"}
+]

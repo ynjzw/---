@@ -1,52 +1,23 @@
-<script >
-import NeoVis from 'neovis.js'; 
-// var neo4j=require("neo4j-driver")
-export default {
-  data() {
-    return {
-      viz:{}
-    };
-  },
-  mounted() {
-    this.draw()
-  },
-  methods:{
-    draw() {
-      const config = {
-        container_id: 'viz',
-        server_url: 'http://localhost:7474',
-        server_user: 'neo4j',
-        server_password: 'lintao123',
-        labels: {
-          "Country": {
-            caption: "name",
-            
-          }
-        },
-        relationships: {
-          "exchange": {
-            
-          }
-        },
-        arrows: true,
-        hierarchical_sort_method: 'directed',
-        initial_cypher: 'MATCH p=()-->() RETURN p LIMIT 25'
-      };
-    const viz = new NeoVis(config);
-    viz.render();
-    console.log(viz)
-    }
-  }
-}
-</script>
-
 <template>
-  <div style="height:100%;" ref="Screen">
-    <div class="left" id="viz" ></div>
-  </div> 
 
+<!-- ref 用于在组件中引用当前的 DOM 元素。-->
+<div id="3d-graph"></div>
 </template>
+<script setup>
+import {onMounted, ref} from "vue";
+import ForceGraph3D from "3d-force-graph";
+const N = 300;
+const gData = {
+  nodes: [...Array(N).keys()].map(i => ({ id: i })),
+  links: [...Array(N).keys()]
+    .filter(id => id)
+    .map(id => ({
+      source: id,
+      target: Math.round(Math.random() * (id-1))
+    }))
+};
 
-<style lang="less" scoped>
-</style>
-
+const Graph = new ForceGraph3D(document.getElementById('3d-graph'))
+    .graphData(gData);
+</script>
+<style scoped></style>
