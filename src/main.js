@@ -7,6 +7,7 @@ import { MotionPlugin } from '@vueuse/motion'
 import axios from 'axios'
 import request from './util/request'
 
+
 const pinia = createPinia()
 
 const app=createApp(App)

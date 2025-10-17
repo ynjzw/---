@@ -1,18 +1,17 @@
 <template>
- <VueForceGraph2D :graphData="graphData" />
+  <!-- <VueForceGraph2D :graphData="graphData" /> -->
 </template>
 <script>
-import { VueForceGraph2D } from 'vue-force-graph';
 export default {
-  components: { VueForceGraph2D },
+  // components: { VueForceGraph2D },
    data () {
     return {
       graphData: {
-      nodes: [{ id: 'node1',name:"name1",val:10 ,color: 'red'}, 
-              { id: 'node2',name:"name2",val:2 }, 
-              { id: 'node3',name:"name3",val:3 }],
-      links: [{ source: 'node1', target: 'node2',color:'red ' },
-              { source: 'node2', target: 'node3' }]
+      // nodes: [{ id: 'node1',name:"name1",val:10 ,color: 'red'}, 
+      //         { id: 'node2',name:"name2",val:2 }, 
+      //         { id: 'node3',name:"name3",val:3 }],
+      // links: [{ source: 'node1', target: 'node2',color:'red ' },
+      //         { source: 'node2', target: 'node3' }]
       }
     }
   },

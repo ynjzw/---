@@ -1,14 +1,12 @@
 <template>
-  <div v-bind="d">
-    <div id="mynetwork" style="height: 400px;"></div>
-    
-  </div>
+  <div>
+  <div id="mynetwork" style="height: 400px;"></div>
+    <div id="timeline"></div>
+    </div>
 </template>
 
 <script>
-import {Network,DataSet} from 'vis'
-import node from './node_data.json'
-import edge from './edge_data.json'
+import {Network,DataSet,Timeline} from 'vis'
 export default {
   data() {
     return {
@@ -41,6 +39,11 @@ export default {
   },
   mounted() {
     this.initNetwork();
+    // 创建一个时间轴
+    const timeline = new Timeline(document.getElementById('timeline'), {
+      start: new Date(),
+      end: new Date(Date.now() + 1000 * 60 * 60 * 24 ), // 一周后
+    })    
   },
   methods: {
     initNetwork() {
@@ -54,7 +57,3 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>

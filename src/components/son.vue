@@ -8,7 +8,6 @@
 <script setup >
 // defineProps 接收父组件传入的值，使用方式分为ts的用法和非ts的用法
 // 非ts的用法
-import { ref } from 'vue';
 import { defineProps } from 'vue';
 const props = defineProps({
   msg: {

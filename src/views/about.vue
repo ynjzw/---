@@ -1,9 +1,7 @@
 <script setup>
 import moment from 'moment'
-import { DataSet, Timeline } from 'vis-timeline/standalone'
+import { DataSet, Timeline } from 'vis'
 import { onMounted, ref } from 'vue'
-import '../../node_modules/vis-timeline/styles/vis-timeline-graph2d.min.css'
-import  "../../node_modules/moment/dist/locale/zh-cn.js";
 const timelineContainer = ref(null)
 const visible = ref(false)
 const pdfVisible = ref(false)

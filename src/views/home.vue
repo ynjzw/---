@@ -29,10 +29,10 @@ export default{
 *{margin: 0;padding: 0;}
     
 .taiji{
-    width: 400px;
-    height: 400px;
-    left:35%;
-    top:15%;
+    width: 300px;
+    height: 300px;
+    margin-left:40%;
+    margin-top:5%;
     background-color: #000;
     border: 0px solid #fff;
     border-radius: 50%;
@@ -40,27 +40,28 @@ export default{
     position: relative;
     animation: rota 10s linear infinite;
     opacity: 50%;
+    overflow: hidden;
 }
 .taiji:hover{
     animation-play-state: paused;
 }
 .person{
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     background: -webkit-radial-gradient(center,white 20%,black 20%);
     position: absolute;
     top: 0;
-    left: 100px;
+    left: 75px;
 }
 .world{
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     background: -webkit-radial-gradient(center,black 20%,white 20%);
     position: absolute;
     bottom: 0;
-    left: 100px;
+    left: 75px;
 }
 
 @keyframes rota {

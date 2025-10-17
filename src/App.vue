@@ -11,7 +11,9 @@ export default {
       vantaEffect: null,
       headerNav: [
         { label: '首页', to: '/' },
-        { label: '关于', to: '/about' }
+        {label:'testnet',to:'/testnet'},
+        {label:'network',to:'/network'},
+        {label:'about',to:'/about'}
       ]
     };
   },
@@ -32,9 +34,6 @@ export default {
       if (item && item.to) {
         this.$router && this.$router.push(item.to)
       }
-    },
-    onSearch(q) {
-      console.log('search', q)
     }
   }
 }
@@ -42,15 +41,15 @@ export default {
 
 <template>
   <div id="app">
-    <app-header :title="'前后端分离前端'" :nav-items="headerNav" :show-search="true" @nav-click="onNavClick" @search="onSearch" />
+    <app-header :nav-items="headerNav" @nav-click="onNavClick"/>
     <router-view />
   </div>
 </template>
 
 <style scoped>
-#app{
-  background-size: cover;
+#app{  
   width: 100%;
-  height: 700px;
+  height: 100%;
+  overflow: hidden;
 }
 </style>

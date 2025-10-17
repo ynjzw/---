@@ -1,7 +1,6 @@
 <template>
   <!-- 图表容器：设置宽度和高度 -->
   <div ref="chartRef" style="width: 600px; height: 400px;"></div>
-  <table-vue></table-vue>
 </template>
  
 <script setup>
@@ -9,7 +8,6 @@
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 // 引入 echarts 库
 import * as echarts from 'echarts'
-import tableVue from './table.vue'
  
 // 获取 DOM 元素的引用（用于初始化图表）
 const chartRef = ref(null)
