@@ -8,6 +8,7 @@ import network from '../views/network.vue'
 import testnet from '../views/testnet.vue'
 import about from '../views/about.vue'
 import xx from '../views/xx.vue'
+import yy from '../views/yy.vue'
 // 定义路由表
 const routes = [
   {name: 'home', path: '/', component: home},
@@ -18,6 +19,7 @@ const routes = [
   {name: 'network',path: '/network',component: network},
   {name: 'testnet',path: '/testnet',component: testnet},
   {name: 'about',path: '/about',component: about},
+  {name: 'yy',path: '/yy',component: yy},
   {name: 'xx',path: '/xx',component: xx}
 ]
 
