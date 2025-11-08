@@ -7,12 +7,9 @@
 
 <script>
 import {Network,DataSet} from 'vis'
-import node from './node_data.json'
-import edge from './edge_data.json'
 export default {
   data() {
     return {
-      nodes: new DataSet(node),
       nodes1: new DataSet([
         { id: 'Node 1', label: 'Node 1' , start: '2023-01-02',shape:'circle'},
         { id: 'Node 2', label: 'Node 2' , start: '2023-01-02',shape:'square'},
@@ -20,7 +17,6 @@ export default {
         { id: 4, label: 'Node 4' , start: '2023-01-02'},
         { id: 5, label: 'Node 5' , start: '2023-01-02'}
       ]),
-      edges: new DataSet(edge),
       edges1: new DataSet([
         { from: 'Node 1', to: 'Node 2' },
         { from: 'Node 2', to: 'Node 1' },
@@ -46,8 +42,8 @@ export default {
     initNetwork() {
       const container = document.getElementById('mynetwork');
       const data = {
-        nodes: this.nodes,
-        edges: this.edges
+        nodes: this.nodes1,
+        edges: this.edges1
       };
       this.network = new Network(container, data, this.options);
     }

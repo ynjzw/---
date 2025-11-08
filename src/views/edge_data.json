@@ -1,6 +1,0 @@
-[
-    { "from": "Node 1", "to": 3 ,"label":"A to B"},
-    { "from": "Node 1", "to": "Node 2" },
-    { "from": "Node 2", "to": 4 },
-    { "from": "Node 2", "to": 5 }
-]

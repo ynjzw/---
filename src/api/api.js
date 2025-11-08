@@ -52,3 +52,11 @@ export function getAIRes(data){
         {'data':data}
     )    
 }
+
+const url5='/api/ttt'
+export function getTest2(){
+    return request({
+        url:url5,
+        method:get
+    })    
+}

@@ -9,13 +9,22 @@ import {ref} from 'vue'
 import { getNodes,getLinks,getTest,getAIRes } from '../api/api';
 
 export default{
-  mounted(){    
-      
-  },
+  
   methods:{
     test(){
-      getTest().then(res =>{
+      getLinks().then(res =>{
+        res=res.map(item=>{
+          return {
+            ...item,
+            from:item['test']
+          }
+        })
+        res.map(item=>{
+          delete item.test
+        })
+
         console.log(res)
+        
       })   
     }
   }

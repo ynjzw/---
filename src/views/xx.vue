@@ -1,12 +1,13 @@
 <template>
   <div id="test">
     <div id="part">
-      <div id="mynetwork">ddd</div>
+      <!-- <button @click="initNetwork()"></button> -->
+      <div id="mynetwork"></div>
       <div id="chart"></div>
     </div>
     <div id="part">
-      <textarea id="answer"></textarea>
-      <input type="text" placeholder="sss" id="question" />
+      <textarea id="answer" ></textarea>
+      <input v-model="message" label="ask:" placeholder="sss" id="question" >
       <button id="commit" >sss</button>
     </div>
   </div>
@@ -15,60 +16,64 @@
 <script>
 import { Network, DataSet } from 'vis'
 import * as echart from 'echarts'
-import node from './node_data.json'
-import edge from './edge_data.json'
-import screenshot from '../images/screenshot.png'
+import { getNodes,getLinks,getTest2 } from '../api/api';
 export default {
   data() {
-    return {
-      graphData: {
-        nodes: [{ id: 'node1' }, { id: 'node2' }],
-        links: [{ source: 'node1', target: 'node2' }]
-      },
-      nodes: new DataSet(node),
-      nodes1: new DataSet([
-        { id: 'Node 1', label: 'Node 1', start: '2023-01-02', shape: 'circle' },
-        { id: 'Node 2', label: 'Node 2', start: '2023-01-02', shape: 'square' },
-        { id: 3, label: 'Node 3', start: '2023-01-02' },
-        { id: 4, label: 'Node 4', start: '2023-01-02' },
-        { id: 5, label: 'Node 5', start: '2023-01-02' }
-      ]),
-      edges: new DataSet(edge),
-      edges1: new DataSet([
-        { from: 'Node 1', to: 'Node 2' ,length:100},
-        { from: 'Node 2', to: 'Node 1',length:100 },
-        { from: 3, to: 4 },
-        { from: 4, to: 5 },
-        { from: 5, to: 5 }
-      ]),
+    return {    
+      message:'',  
       options: {
-        edges: {
-          arrows: 'to',
-          color: 'white'          
-        },
+        groups:{
+            node1:{
+              color:'blue',
+              shape:'dot'
+            },
+            node2:{
+              color:'yellow',
+              shape:'circle'
+            }
+          },
         nodes: {
-          font: { color: 'red' },
-          image:screenshot
+          font: { color: 'red' }
+          
+        },
+        edges:{
+          arrows:'to'
         }
       }
-    };
+    }; 
   },
   mounted() {
-    this.initNetwork(this.nodes, this.edges);
+    this.initNetwork();
+    
     // 间隔5秒改变知识图谱
-    setTimeout(() => {
-      this.initNetwork(this.nodes1, this.edges1)
-    }, 5000);
+    // setTimeout(() => {
+    //   this.initNetwork()
+    // }, 5000);
     this.initTimeline()
   },
   methods: {
-    initNetwork(node, edge) {
+    async initNetwork() {
       const container = document.getElementById('mynetwork');
+      const node=await getNodes().then(res=>{
+        return res
+      })
+      const edge=await getLinks().then(res=>{        
+        res=res.map(item=>{
+          return {
+            ...item,
+            from:item.test
+          }
+        })
+        return res
+      })
+      
       const data = {
-        nodes: node,
-        edges: edge
+        nodes: new DataSet(node),
+        edges: new DataSet(edge)
       };
       this.network = new Network(container, data, this.options);
+      // console.log(data)
+      
     },
     initTimeline() {
       // 创建一个时间轴
@@ -77,7 +82,7 @@ export default {
       const options = { 
         timeline:{
           data:[
-            '2022','2222','1111'
+            'xxx','qq','dd'
           ]
         }
        }
@@ -100,7 +105,7 @@ export default {
   height: 500px;
 }
 #question{
-  background-color: aliceblue;
+  
   width: 400px;
   margin: 10px;
 }
